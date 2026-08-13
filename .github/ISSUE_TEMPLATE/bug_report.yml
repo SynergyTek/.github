@@ -1,0 +1,57 @@
+name: Bug
+description: Something behaves incorrectly
+title: "<what is broken, in one line>"
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      description: The incorrect behaviour, stated plainly.
+      placeholder: Saving a record silently resets a setting that was switched on.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should happen instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: Repo, file or endpoint, and environment (dev / uat / prod).
+      placeholder: repository — file or endpoint — environment
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      options:
+        - Blocks a release or a customer
+        - Wrong data or a broken user journey
+        - Cosmetic or minor
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Logs, screenshots, trace ID. Redact tokens, keys and real hostnames.
