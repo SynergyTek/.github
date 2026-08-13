@@ -1,0 +1,55 @@
+name: Enhancement
+description: New capability, or an improvement to existing behaviour
+title: "<the outcome, in one line>"
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Title the outcome, not the activity.
+        Good: "Support BFF cookie-session auth"
+        Poor: "Task UI Changes", "Create Dashboard"
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is hard, slow or impossible today. Not the solution — the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: How we know this is done. Nobody starts work until this is filled in.
+      value: |
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+
+  - type: textarea
+    id: outofscope
+    attributes:
+      label: Out of scope
+      description: What this deliberately does not cover. Prevents the scope drifting later.
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - p0-critical — work stops until this is done
+        - p1-high — this iteration
+        - p2-normal — planned
+        - p3-low — someday
+    validations:
+      required: true
