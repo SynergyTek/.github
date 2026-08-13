@@ -1,0 +1,67 @@
+name: Security finding
+description: A vulnerability or weakness in our own code or configuration
+title: "[Security] <the weakness, in one line>"
+labels: ["bug", "security"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This template matches the style already used in `Synergy.Base.Auth` and
+        `Synergy.Base.Workflow`. Keep the `[Security]` title prefix — it is what
+        makes these findings filterable across 250+ repos.
+
+        **Do not paste live credentials, tokens or real hostnames into this issue.**
+        If a secret has been exposed, treat it as compromised and get it rotated first.
+
+  - type: textarea
+    id: weakness
+    attributes:
+      label: The weakness
+      description: What is wrong, and where.
+      placeholder: An endpoint is reachable without authentication.
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: What an attacker could do
+      description: The concrete consequence, not the theoretical category.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Critical — exploitable now, data or auth at risk
+        - High — exploitable with conditions
+        - Medium — weakens defence in depth
+        - Low — hardening
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      placeholder: repository — file — method
+    validations:
+      required: true
+
+  - type: textarea
+    id: fix
+    attributes:
+      label: Proposed fix
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope flags
+      options:
+        - label: Touches cardholder data or the payment path (PCI scope)
+        - label: Touches authentication, authorisation or session handling
+        - label: Affects a customer-specific deployment
